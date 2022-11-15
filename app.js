@@ -15,8 +15,10 @@ var app = express();
 
 // initialize mongoose (orm)
 const mongoose = require("mongoose");
-const mongoDb =
+const dev_db_url =
   "mongodb+srv://m001-student:mongodb-basics@sandbox.ed9rkru.mongodb.net/local_library?retryWrites=true&w=majority";
+
+const mongoDb = process.env.MONGODB_URI || dev_db_url;
 
 // connect to mongo database
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
